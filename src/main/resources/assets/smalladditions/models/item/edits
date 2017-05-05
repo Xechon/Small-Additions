@@ -1,2 +1,4 @@
 Xechon: Changed grassystone.json parent from "smalladditions:block/grassystone" to "smalladditions:block/grassystone_model"
     to match the name of the block model
+Xechon: Changed grassysone.json parent again from grassystone_model to grassystone_model_0 to be consistent with naming
+scheme

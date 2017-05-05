@@ -1,0 +1,3 @@
+Xechon: Changed grassystone.json to grassystone_model_0 to be more consistent. Should make it easier to follow when looking
+    at the jsons in the future. Similarly, the item parent (at my request, without seeing the actual code) was
+    grassystone_model_0, which didn't exist at the time.

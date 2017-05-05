@@ -1,5 +1,5 @@
 {
-    "parent": "smalladditions:block/grassystone/grassystone_model",
+    "parent": "smalladditions:block/grassystone/grassystone_model_0",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],
