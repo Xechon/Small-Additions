@@ -1,9 +1,9 @@
 {
     "variants": {
         "normal": [ 
-		{ "model": "smalladditions:models/block/grassystone/grassystone" },
-		{ "model": "smalladditions:models/block/grassystone/grassystone_model_1" },
-		{ "model": "smalladditions:models/block/grassystone/grassystone_model_2" }
+		{ "model": "smalladditions:grassystone/grassystone_model_0" },
+		{ "model": "smalladditions:grassystone/grassystone_model_1" },
+		{ "model": "smalladditions:grassystone/grassystone_model_2" }
 	]
     }
 }
