@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "up": "smalladditions:blocks/grassystone_top_roundstones",
+	"down": "smalladditions:blocks/grassystone_bottom",
+	"north": "smalladditions:blocks/grassystone_side",
+	"south": "smalladditions:blocks/grassystone_side",
+	"east": "smalladditions:blocks/grassystone_side",
+	"west": "smalladditions:blocks/grassystone_side",
+	"particle": "blocks/stone"
+    }
+}
