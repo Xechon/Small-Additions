@@ -1,7 +1,9 @@
 package com.gunmetal.smalladditions;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -18,6 +20,7 @@ public class Main {
 	public static final String MODID = "smalladditions";
 	public static final String VERSION = "1.0";
 	
+	public static LiquidMercury liquidmercury = new LiquidMercury();
 	public static GrassyStone grassystone = new GrassyStone();
 	public static ItemBlock gStoneItem = new ItemBlock(grassystone);
 	
@@ -27,6 +30,7 @@ public class Main {
 		
 		// Xechon: Added this line to register actual block
 		GameRegistry.register(grassystone);
+		GameRegistry.register(liquidmercury);
 		
 		// Xechon: Changed this line to actually use the ItemBlock created in gStoneItem, and to use the registry name
 		//  of its block
@@ -46,7 +50,10 @@ public class Main {
 		//  in preInit
 		// Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(gStoneItem, 0,
 		// new ModelResourceLocation(MODID + ":" + grassystone.getUnlocalizedName().substring(5), "inventory"));
-		
+		GameRegistry.addRecipe(new ItemStack(grassystone),  
+				"B",
+				"A",
+				'A', Blocks.STONE, 'B', Blocks.GRASS);
 	}
 	
 	@EventHandler //Postinit event; lets this mod communicate with other mods, and vice versa
