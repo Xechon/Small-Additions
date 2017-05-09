@@ -1,21 +1,20 @@
 package com.gunmetal.smalladditions;
 
-import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumBlockRenderType;
+import net.minecraftforge.fluids.BlockFluidFinite;
+import net.minecraftforge.fluids.IFluidBlock;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class LiquidMercury extends BlockLiquid {
+public class LiquidMercury extends BlockFluidFinite implements IFluidBlock {
 	
 	public LiquidMercury() { 
-		super(Material.WATER);
-		this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+		super(new FluidMercury(), Material.WATER);
 		this.setUnlocalizedName("mercuryliquid");
-		this.setRegistryName(Main.MODID, "mercuryliquid");
+		this.setRegistryName("mercuryliquid");
 	}
 	
 	@Override
