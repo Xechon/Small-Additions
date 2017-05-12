@@ -19,14 +19,15 @@ public class Main {
 	
 	public static GrassyStone grassystone = new GrassyStone();
 	public static ItemBlock gStoneItem = new ItemBlock(grassystone);
-	public static LiquidMercury liquidmercury = new LiquidMercury();
-	public static FluidMercury fluidmercury = new FluidMercury();
+	//public static LiquidMercury liquidmercury = new LiquidMercury();
+	//public static FluidMercury fluidmercury = new FluidMercury();
 	
 	@EventHandler //Preinit event; registers blocks/items/content with the game registry
 	public void preInit(FMLPreInitializationEvent e) {
 		SAFluidManager.registerFluids();
 		GameRegistry.register(grassystone); //register grassystone block
 		GameRegistry.register(gStoneItem.setRegistryName(grassystone.getRegistryName())); //register grassystone itemblock
+		SAFluidManager.register();
 		
 		if(e.getSide() == Side.CLIENT) { //If the PreInitializationEvent is clientside, load the model for grassystone
 			ModelLoader.setCustomModelResourceLocation(gStoneItem, 0, new ModelResourceLocation(gStoneItem.
