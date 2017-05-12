@@ -4,17 +4,22 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumBlockRenderType;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidFinite;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.IFluidBlock;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class LiquidMercury extends BlockFluidFinite implements IFluidBlock {
 	
+	private FluidMercury fluidMercury = new FluidMercury();
+	
 	public LiquidMercury() { 
 		super(new FluidMercury(), Material.WATER);
-		this.setUnlocalizedName("mercuryliquid");
-		this.setRegistryName("mercuryliquid");
+		this.setUnlocalizedName("liquidMercury");
+		this.setRegistryName("liquidMercury");
 	}
 	
 	@Override
@@ -35,5 +40,10 @@ public class LiquidMercury extends BlockFluidFinite implements IFluidBlock {
 	@Override
 	public EnumBlockRenderType getRenderType(IBlockState iBlockState) {
 		return EnumBlockRenderType.LIQUID;
+	}
+	
+	@Override
+	public Fluid getFluid() {
+		return fluidMercury;
 	}
 }

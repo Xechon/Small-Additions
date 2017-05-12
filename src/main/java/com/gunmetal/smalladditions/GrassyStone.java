@@ -21,7 +21,7 @@ public class GrassyStone extends Block {
 		this.blockResistance = 10.0F;
 		this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 		this.setUnlocalizedName("grassystone");
-		this.setRegistryName(Main.MODID, "grassystone");
+		this.setRegistryName(Constants.MODID, "grassystone");
 	}
 	
 	@Override //all of these Override anns just mean that these methods must override something, else throw a runtime exception

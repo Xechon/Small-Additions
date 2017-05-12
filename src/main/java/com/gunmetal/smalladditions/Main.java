@@ -14,25 +14,19 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
-@Mod (modid = Main.MODID, version = Main.VERSION, name = Main.NAME) //identifies this class to Forge as a mod class
+@Mod (modid = Constants.MODID, version = Constants.VERSION, name = Constants.MODNAME) //identifies this class to Forge as a mod class
 public class Main {
 	
-	public static final String NAME = "Small Additions";
-	public static final String MODID = "smalladditions";
-	public static final String VERSION = "1.0";
-	
-	public static FluidMercury fluidmercury = new FluidMercury();
 	public static GrassyStone grassystone = new GrassyStone();
 	public static ItemBlock gStoneItem = new ItemBlock(grassystone);
 	public static LiquidMercury liquidmercury = new LiquidMercury();
+	public static FluidMercury fluidmercury = new FluidMercury();
 	
 	@EventHandler //Preinit event; registers blocks/items/content with the game registry
 	public void preInit(FMLPreInitializationEvent e) {
+		SAFluidManager.registerFluids();
 		GameRegistry.register(grassystone); //register grassystone block
-		GameRegistry.register(liquidmercury); //register liquid mercury block
 		GameRegistry.register(gStoneItem.setRegistryName(grassystone.getRegistryName())); //register grassystone itemblock
-		
-		FluidRegistry.registerFluid(fluidmercury); //register liquid mercury into the fluid registry (mB compatibility, tanks, etc)
 		
 		if(e.getSide() == Side.CLIENT) { //If the PreInitializationEvent is clientside, load the model for grassystone
 			ModelLoader.setCustomModelResourceLocation(gStoneItem, 0, new ModelResourceLocation(gStoneItem.
@@ -40,7 +34,7 @@ public class Main {
 		}
 	}
 	
-	@EventHandler //Init event; registers blocks into the running program itself
+	@EventHandler //Init event; registers crafting recipes and other recipes
 	public void init(FMLInitializationEvent e) {
 		GameRegistry.addRecipe(new ItemStack(grassystone), //grassystone crafting recipe  
 				"B",
