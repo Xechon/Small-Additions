@@ -1,6 +1,7 @@
 {
-    "parent": "block/cube",
+    "parent": "minecraft:block/cube_all",
     "textures": {
-        "all": "smalladditions:blocks/liquidmercury"
+        "all": "smalladditions:blocks/mercurystill",
+		"flowing": "smalladditions:blocks/mercuryflowing"
     }
 }

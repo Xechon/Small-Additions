@@ -5,6 +5,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -13,44 +14,30 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
-@Mod (modid = Main.MODID, version = Main.VERSION, name = Main.NAME) //identifies this class to Forge as a mod class
+@Mod (modid = Constants.MODID, version = Constants.VERSION, name = Constants.MODNAME) //identifies this class to Forge as a mod class
 public class Main {
 	
-	public static final String NAME = "Small Additions";
-	public static final String MODID = "smalladditions";
-	public static final String VERSION = "1.0";
-	
-	public static LiquidMercury liquidmercury = new LiquidMercury();
 	public static GrassyStone grassystone = new GrassyStone();
 	public static ItemBlock gStoneItem = new ItemBlock(grassystone);
+	//public static LiquidMercury liquidmercury = new LiquidMercury();
+	//public static FluidMercury fluidmercury = new FluidMercury();
 	
 	@EventHandler //Preinit event; registers blocks/items/content with the game registry
 	public void preInit(FMLPreInitializationEvent e) {
-		//grassystone.setRegistryName(MODID,"grassystone");
+		SAFluidManager.registerFluids();
+		GameRegistry.register(grassystone); //register grassystone block
+		GameRegistry.register(gStoneItem.setRegistryName(grassystone.getRegistryName())); //register grassystone itemblock
+		SAFluidManager.register();
 		
-		// Xechon: Added this line to register actual block
-		GameRegistry.register(grassystone);
-		GameRegistry.register(liquidmercury);
-		
-		// Xechon: Changed this line to actually use the ItemBlock created in gStoneItem, and to use the registry name
-		//  of its block
-		GameRegistry.register(gStoneItem.setRegistryName(grassystone.getRegistryName()));
-		
-		// Xechon: Added this code to properly register item model
-		if(e.getSide() == Side.CLIENT) {
+		if(e.getSide() == Side.CLIENT) { //If the PreInitializationEvent is clientside, load the model for grassystone
 			ModelLoader.setCustomModelResourceLocation(gStoneItem, 0, new ModelResourceLocation(gStoneItem.
 					getRegistryName(), "inventory"));
 		}
 	}
 	
-	@EventHandler //Init event; registers blocks into the running program itself
+	@EventHandler //Init event; registers crafting recipes and other recipes
 	public void init(FMLInitializationEvent e) {
-		// Xechon: Removed this line - should do this on client side only, better to use ModelLoader as above, and can
-		//  use getRegistryName() instead of using MODID + ":" + getUnlocalizedName().substring(5); Also should be done
-		//  in preInit
-		// Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(gStoneItem, 0,
-		// new ModelResourceLocation(MODID + ":" + grassystone.getUnlocalizedName().substring(5), "inventory"));
-		GameRegistry.addRecipe(new ItemStack(grassystone),  
+		GameRegistry.addRecipe(new ItemStack(grassystone), //grassystone crafting recipe  
 				"B",
 				"A",
 				'A', Blocks.STONE, 'B', Blocks.GRASS);
