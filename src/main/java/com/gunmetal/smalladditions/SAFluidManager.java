@@ -1,7 +1,8 @@
 package com.gunmetal.smalladditions;
 
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fluids.BlockFluidFinite;
+import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -9,30 +10,33 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class SAFluidManager {
 	
 	public static Fluid fluidMercury;
-	public static BlockFluidFinite liquidMercury = new LiquidMercury();
+	public static BlockFluidBase liquidMercury;
 	
 	public static void register() {
 		registerFluids();
-		registerFluidBlocks(liquidMercury);
+		liquidMercury = new LiquidMercury(fluidMercury);
+		registerFluidBlock(liquidMercury);
 	}
 	
 	public static void registerFluids() {
-		fluidMercury = createFluid("Mercury", "mercury", true);
+		fluidMercury = createFluid("liquid_mercury", "liquid_mercury", true);
 		setBucketforFluids(fluidMercury);
 		FluidRegistry.registerFluid(fluidMercury);
 	}
 	
-	public static void registerFluidBlocks(BlockFluidFinite input) {
+	public static void registerFluidBlock(BlockFluidBase input) {
 		String fluidName = input.getFluid().getUnlocalizedName();
 		input.setUnlocalizedName(fluidName);
 		GameRegistry.register(input);
+		GameRegistry.register(new ItemBlock(input).setRegistryName(input.getRegistryName()));
 	}
 	
 	public static Fluid createFluid(String name, String textureName, boolean hasFlowIcon) {
-		ResourceLocation still = new ResourceLocation(textureName + "_still");
+		String texturePrefix = Constants.RESOURCE_PREFIX + "blocks/";
+		ResourceLocation still = new ResourceLocation(texturePrefix + textureName + "_still");
 		ResourceLocation flowing;
 		if (hasFlowIcon) {
-			flowing = new ResourceLocation(textureName + "_flow");
+			flowing = new ResourceLocation(texturePrefix + textureName + "_flow");
 		} else {
 			flowing = still;
 		}
