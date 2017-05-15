@@ -5,7 +5,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -19,12 +18,9 @@ public class Main {
 	
 	public static GrassyStone grassystone = new GrassyStone();
 	public static ItemBlock gStoneItem = new ItemBlock(grassystone);
-	//public static LiquidMercury liquidmercury = new LiquidMercury();
-	//public static FluidMercury fluidmercury = new FluidMercury();
 	
 	@EventHandler //Preinit event; registers blocks/items/content with the game registry
 	public void preInit(FMLPreInitializationEvent e) {
-		SAFluidManager.registerFluids();
 		GameRegistry.register(grassystone); //register grassystone block
 		GameRegistry.register(gStoneItem.setRegistryName(grassystone.getRegistryName())); //register grassystone itemblock
 		SAFluidManager.register();
@@ -32,6 +28,7 @@ public class Main {
 		if(e.getSide() == Side.CLIENT) { //If the PreInitializationEvent is clientside, load the model for grassystone
 			ModelLoader.setCustomModelResourceLocation(gStoneItem, 0, new ModelResourceLocation(gStoneItem.
 					getRegistryName(), "inventory"));
+			SAModelManager.INSTANCE.registerFluidModel(SAFluidManager.liquidMercury);
 		}
 	}
 	

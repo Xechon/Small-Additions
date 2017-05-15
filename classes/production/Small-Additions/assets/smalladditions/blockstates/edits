@@ -1,0 +1,1 @@
+Changed model paths from models/block/grassystone/* to grassystone/*, as the models/blocks is assumed
