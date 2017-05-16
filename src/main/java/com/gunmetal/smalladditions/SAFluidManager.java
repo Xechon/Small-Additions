@@ -20,8 +20,8 @@ public class SAFluidManager {
 	
 	public static void registerFluids() {
 		fluidMercury = createFluid("liquid_mercury", "liquid_mercury", true);
-		setBucketforFluids(fluidMercury);
 		FluidRegistry.registerFluid(fluidMercury);
+		setBucketforFluids(fluidMercury);
 	}
 	
 	public static void registerFluidBlock(BlockFluidBase input) {
@@ -45,6 +45,11 @@ public class SAFluidManager {
 	}
 
 	public static void setBucketforFluids(Fluid fluid) {
-		FluidRegistry.addBucketForFluid(fluid);
+		boolean bucket = FluidRegistry.addBucketForFluid(fluid);
+		if (bucket) {
+			FluidRegistry.addBucketForFluid(fluid);
+		} else {
+			System.out.println("WARNING! BUCKET DID NOT REGISTER!");
+		}
 	}
 }

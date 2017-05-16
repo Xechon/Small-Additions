@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "normal": [
+		{ "model": "smalladditions:orecinnabar/orecinnabar_model_0" }
+		]
+    }
+}
