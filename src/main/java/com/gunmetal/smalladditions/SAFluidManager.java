@@ -45,11 +45,6 @@ public class SAFluidManager {
 	}
 
 	public static void setBucketforFluids(Fluid fluid) {
-		boolean bucket = FluidRegistry.addBucketForFluid(fluid);
-		if (bucket) {
-			FluidRegistry.addBucketForFluid(fluid);
-		} else {
-			System.out.println("WARNING! BUCKET DID NOT REGISTER!");
-		}
+		FluidRegistry.addBucketForFluid(fluid);
 	}
 }

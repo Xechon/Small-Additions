@@ -11,6 +11,7 @@ public class MercuryDrop extends Item {
 		this.maxStackSize = 64;
 		this.setRegistryName(NAME);
 		this.setUnlocalizedName(NAME);
+		this.setCreativeTab(Constants.SACTAB);
 	}
 	
 	public String getName() {
