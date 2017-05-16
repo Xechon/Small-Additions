@@ -4,8 +4,8 @@
         "model": "forge:fluid"
     },
     "variants": {
-        "liquid_mercury": {
+        "liquid_mercury": [{
             "custom": { "fluid": "liquid_mercury" }
-        }
+        }]
     }
 }

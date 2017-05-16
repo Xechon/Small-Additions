@@ -1,2 +1,3 @@
 tile.grassystone.name=Grassy Stone
-tile.liquidmercury.name=Liquid Mercury
+tile.fluid.liquid_mercury.name=Liquid Mercury
+itemGroup.Small Additions=Small Additions

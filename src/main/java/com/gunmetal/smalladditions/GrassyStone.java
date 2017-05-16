@@ -4,10 +4,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumBlockRenderType;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -19,9 +17,9 @@ public class GrassyStone extends Block {
 		this.blockSoundType = SoundType.STONE;
 		this.blockHardness = 1.5F;
 		this.blockResistance = 10.0F;
-		this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-		this.setUnlocalizedName("grassystone");
-		this.setRegistryName(Constants.MODID, "grassystone");
+		this.setCreativeTab(Constants.SACTAB);
+		this.setUnlocalizedName(NAME);
+		this.setRegistryName(Constants.MODID, NAME);
 	}
 	
 	@Override //all of these Override anns just mean that these methods must override something, else throw a runtime exception
