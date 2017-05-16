@@ -9,5 +9,11 @@ public class MercuryDrop extends Item {
 	public MercuryDrop() {
 		super();
 		this.maxStackSize = 64;
+		this.setRegistryName(NAME);
+		this.setUnlocalizedName(NAME);
+	}
+	
+	public String getName() {
+		return NAME;
 	}
 }

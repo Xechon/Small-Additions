@@ -1,5 +1,6 @@
 package com.gunmetal.smalladditions;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -19,6 +20,7 @@ public class Main {
 	public void preInit(FMLPreInitializationEvent e) {
 		GameRegistry.register(SABlockManager.grassystone); //register grassystone block
 		GameRegistry.register(SABlockManager.orecinnabar);
+		GameRegistry.register(SAItemManager.mercuryDrop);
 		GameRegistry.register(SAItemManager.gStoneItem.setRegistryName(SABlockManager.grassystone.getRegistryName())); //register grassystone itemblock
 		GameRegistry.register(SAItemManager.cOreItem.setRegistryName(SABlockManager.orecinnabar.getRegistryName()));
 		SAFluidManager.register();
@@ -26,6 +28,7 @@ public class Main {
 		if(e.getSide() == Side.CLIENT) { //If the PreInitializationEvent is clientside, load the model for grassystone
 			ModelLoader.setCustomModelResourceLocation(SAItemManager.gStoneItem, 0, new ModelResourceLocation(SAItemManager.gStoneItem.getRegistryName(), "inventory"));
 			ModelLoader.setCustomModelResourceLocation(SAItemManager.cOreItem, 0, new ModelResourceLocation(SAItemManager.cOreItem.getRegistryName(), "inventory"));
+			ModelLoader.setCustomModelResourceLocation(SAItemManager.mercuryDrop, 0, new ModelResourceLocation(SAItemManager.mercuryDrop.getRegistryName(), "inventory"));
 			SAModelManager.INSTANCE.registerFluidModel(SAFluidManager.liquidMercury);
 		}
 	}
@@ -36,6 +39,7 @@ public class Main {
 				"B",
 				"A",
 				'A', Blocks.STONE, 'B', Blocks.GRASS);
+		GameRegistry.addSmelting(SABlockManager.orecinnabar, new ItemStack(SAItemManager.mercuryDrop), 3.0F);
 	}
 	
 	@EventHandler //Postinit event; lets this mod communicate with other mods, and vice versa
