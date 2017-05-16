@@ -24,6 +24,8 @@ public class Main {
 		GameRegistry.register(SAItemManager.gStoneItem.setRegistryName(SABlockManager.grassystone.getRegistryName())); //register grassystone itemblock
 		GameRegistry.register(SAItemManager.cOreItem.setRegistryName(SABlockManager.orecinnabar.getRegistryName()));
 		SAFluidManager.register();
+		SAItemManager.registerItems();
+		GameRegistry.register(SAItemManager.mercuryBucket);
 		
 		if(e.getSide() == Side.CLIENT) { //If the PreInitializationEvent is clientside, load the model for grassystone
 			ModelLoader.setCustomModelResourceLocation(SAItemManager.gStoneItem, 0, new ModelResourceLocation(SAItemManager.gStoneItem.getRegistryName(), "inventory"));
