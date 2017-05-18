@@ -19,7 +19,10 @@ import net.minecraftforge.fml.relauncher.Side;
  *  The @Mod annotation tells the Forge compiler that this class is to be recognized as a modification for Minecraft.
  *  This class registers blocks, fluids, items, crafting recipes, ore dictionary entries, and everything else.
  *  It is a bit like a main() method, but it's an entire class, instead.
- *  Any other classes that the mod uses are called from here. <br>
+ *  Any other classes that the mod uses are called from here. 
+ *  The three methods in this class are called 'initialization events.'
+ *  These methods are ONLY EVER called by Forge itself, as the game is starting.
+ *  <br>
  *  <br>
  *  
  *  Some vocabulary: <br>
@@ -36,7 +39,7 @@ import net.minecraftforge.fml.relauncher.Side;
  */
 @Mod (modid = Constants.MODID, version = Constants.VERSION, name = Constants.MODNAME) //identifies this class to Forge as a mod class
 public class Main {
-	static {
+	static { //Static initializer to set up the Forge bucket system
 		FluidRegistry.enableUniversalBucket();
 	}
 	
@@ -72,7 +75,7 @@ public class Main {
 	 */
 	@EventHandler
 	public void init(FMLInitializationEvent e) {
-		//CRAFTING TABLE RECIPES
+		//SHAPED RECIPES
 		GameRegistry.addRecipe(new ItemStack(SABlockManager.grassystone), //grassystone crafting recipe  
 				"B",
 				"A",
