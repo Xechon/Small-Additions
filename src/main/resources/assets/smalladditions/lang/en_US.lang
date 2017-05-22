@@ -3,4 +3,5 @@ tile.fluid.liquid_mercury.name=Liquid Mercury
 itemGroup.Small Additions=Small Additions
 tile.orecinnabar.name=Cinnabar Ore
 item.mercurydrop.name=Drop of Mercury
+item.mercurybucket.name=Liquid Mercury Bucket
 fluid.liquid_mercury=Liquid Mercury
