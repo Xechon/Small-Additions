@@ -57,11 +57,14 @@ public class Main {
 		GameRegistry.register(SAItemManager.gStoneItem.setRegistryName(SABlockManager.grassystone.getRegistryName())); //register grassystone itemblock
 		GameRegistry.register(SAItemManager.cOreItem.setRegistryName(SABlockManager.orecinnabar.getRegistryName()));
 		SAFluidManager.register();
+		SAItemManager.registerItems();
+		GameRegistry.register(SAItemManager.HgBucket);
 		
 		if(e.getSide() == Side.CLIENT) { //If the PreInitializationEvent is clientside, load the model for grassystone
 			ModelLoader.setCustomModelResourceLocation(SAItemManager.gStoneItem, 0, new ModelResourceLocation(SAItemManager.gStoneItem.getRegistryName(), "inventory"));
 			ModelLoader.setCustomModelResourceLocation(SAItemManager.cOreItem, 0, new ModelResourceLocation(SAItemManager.cOreItem.getRegistryName(), "inventory"));
 			ModelLoader.setCustomModelResourceLocation(SAItemManager.mercuryDrop, 0, new ModelResourceLocation(SAItemManager.mercuryDrop.getRegistryName(), "inventory"));
+			ModelLoader.setCustomModelResourceLocation(SAItemManager.HgBucket, 0, new ModelResourceLocation(SAItemManager.HgBucket.getRegistryName(), "inventory"));
 			SAModelManager.INSTANCE.registerFluidModel(SAFluidManager.liquidMercury);
 		}
 	}

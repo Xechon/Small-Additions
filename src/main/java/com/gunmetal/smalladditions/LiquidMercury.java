@@ -5,9 +5,11 @@ import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
@@ -45,7 +47,22 @@ public class LiquidMercury extends BlockFluidClassic implements IFluidBlock {
 		return definedFluid;
 	}
 	
-	public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
-		entityIn.handleWaterMovement();
+	@Override
+	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {  
+	        entity.motionX *= 0.1D;
+	        entity.motionZ *= 0.1D;
+	    }
+	  
+	@Override
+	public void onBlockClicked(World worldIn, BlockPos pos, EntityPlayer playerIn) {
+		if (playerIn.getHeldEquipment().equals(Items.BUCKET)) {
+			
+		}
+	}
+	
+	@Override
+	public Vec3d modifyAcceleration(World worldIn, BlockPos pos, Entity entityIn, Vec3d motion)
+    {
+        return motion;
     }
 }
