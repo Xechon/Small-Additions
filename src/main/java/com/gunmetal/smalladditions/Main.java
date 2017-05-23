@@ -38,7 +38,7 @@ import net.minecraftforge.fml.relauncher.Side;
  *
  */
 @Mod (modid = Constants.MODID, version = Constants.VERSION, name = Constants.MODNAME) //identifies this class to Forge as a mod class
-public class Main {
+public class Main { 
 	static { //Static initializer to set up the Forge bucket system
 		FluidRegistry.enableUniversalBucket();
 	}
@@ -56,6 +56,7 @@ public class Main {
 		GameRegistry.register(SAItemManager.mercuryDrop);
 		GameRegistry.register(SAItemManager.gStoneItem.setRegistryName(SABlockManager.grassystone.getRegistryName())); //register grassystone itemblock
 		GameRegistry.register(SAItemManager.cOreItem.setRegistryName(SABlockManager.orecinnabar.getRegistryName()));
+		GameRegistry.register(SAItemManager.additionbook);
 		SAFluidManager.register();
 		SAItemManager.registerItems();
 		GameRegistry.register(SAItemManager.HgBucket);
@@ -65,6 +66,7 @@ public class Main {
 			ModelLoader.setCustomModelResourceLocation(SAItemManager.cOreItem, 0, new ModelResourceLocation(SAItemManager.cOreItem.getRegistryName(), "inventory"));
 			ModelLoader.setCustomModelResourceLocation(SAItemManager.mercuryDrop, 0, new ModelResourceLocation(SAItemManager.mercuryDrop.getRegistryName(), "inventory"));
 			ModelLoader.setCustomModelResourceLocation(SAItemManager.HgBucket, 0, new ModelResourceLocation(SAItemManager.HgBucket.getRegistryName(), "inventory"));
+			ModelLoader.setCustomModelResourceLocation(SAItemManager.additionbook, 0, new ModelResourceLocation(SAItemManager.additionbook.getRegistryName(), "inventory"));
 			SAModelManager.INSTANCE.registerFluidModel(SAFluidManager.liquidMercury);
 		}
 	}

@@ -15,4 +15,5 @@ public class SAItemManager {
 	public static ItemBlock gStoneItem = new ItemBlock(SABlockManager.grassystone);
 	public static ItemBlock cOreItem = new ItemBlock(SABlockManager.orecinnabar);
 	public static UniversalBucket HgBucket;
+	public static Additionomicon additionbook = new Additionomicon();
 }

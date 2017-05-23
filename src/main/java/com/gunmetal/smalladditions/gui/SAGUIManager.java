@@ -1,4 +1,4 @@
-package com.gunmetal.smalladditions;
+package com.gunmetal.smalladditions.gui;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
