@@ -1,5 +1,7 @@
 package com.gunmetal.smalladditions;
 
+import com.gunmetal.smalladditions.gui.SAGUIManager;
+
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -9,16 +11,18 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.UniversalBucket;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
 /** This class represents the hub of the entire mod.
- *  The @Mod annotation tells the Forge compiler that this class is to be recognized as a modification for Minecraft.
+ *  The <code>@Mod</code> annotation tells the Forge compiler that this class is to be recognized as a modification for Minecraft.
  *  This class registers blocks, fluids, items, crafting recipes, ore dictionary entries, and everything else.
- *  It is a bit like a main() method, but it's an entire class, instead.
+ *  It is a bit like a <code>main()</code> method, but it's an entire class, instead.
  *  Any other classes that the mod uses are called from here. 
  *  The three methods in this class are called 'initialization events.'
  *  These methods are ONLY EVER called by Forge itself, as the game is starting.
@@ -43,6 +47,9 @@ public class Main {
 		FluidRegistry.enableUniversalBucket();
 	}
 	
+	@Instance //This is the only instance of this class. It is required for client-server communication.
+	public static Main instance = new Main();
+	
 	/** Pre-Initialization event. This is called when Forge starts up, and begins the registration process.
 	 *  This includes registering Blocks, Items, and ItemBlocks (these are separate things).
 	 *  This is also used to read configuration files, among other things.
@@ -60,6 +67,7 @@ public class Main {
 		SAFluidManager.register();
 		SAItemManager.registerItems();
 		GameRegistry.register(SAItemManager.HgBucket);
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new SAGUIManager());
 		
 		if(e.getSide() == Side.CLIENT) { //If the PreInitializationEvent is clientside, load the model for grassystone
 			ModelLoader.setCustomModelResourceLocation(SAItemManager.gStoneItem, 0, new ModelResourceLocation(SAItemManager.gStoneItem.getRegistryName(), "inventory"));

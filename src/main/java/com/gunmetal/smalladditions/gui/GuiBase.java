@@ -16,16 +16,10 @@ public abstract class GuiBase extends GuiScreen {
 		//openedBook = book;
 		//thisPlayer = player;
 	}
+	
+	public abstract boolean doesGuiPauseGame();
+	public abstract void buildGui();
 
 	@Override
-	public boolean doesGuiPauseGame() {
-		return true;
-	}
-	
-	public void draw(GuiScreen displayedScreen) {
-		drawScreen(0, 0, 0.0F);
-		this.mc.displayGuiScreen(displayedScreen);
-	}
-	
-	public abstract void buildGui();	
+	public void drawScreen(int mouseX, int mouseY, float partialTicks) {}	
 }
