@@ -1,6 +1,9 @@
 package com.gunmetal.smalladditions.gui;
 
+import com.gunmetal.smalladditions.Constants;
+
 import net.minecraft.client.gui.GuiButton;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -19,7 +22,7 @@ public class AddBookGui extends GuiBase {
 	public void initGui() {
 		this.buttonList.clear();
 		this.buttonList.add(new GuiButton(0, 100, 100, 180, 20, "ButtonText"));
-		drawScreen(X, Y, TICKS);
+		//drawScreen(X, Y, TICKS);
         /*Parameters:
          * button id used when checking what to do when a button is pressed
          * The X position of the button
@@ -31,6 +34,8 @@ public class AddBookGui extends GuiBase {
 	
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+		this.drawDefaultBackground();
+		this.mc.renderEngine.bindTexture(new ResourceLocation(Constants.MODID + ":" + "addbook"));
 		this.drawCenteredString(mc.fontRendererObj, "What a wonderful world", 100, 100, WHITE);
 		//drawTexturedModalRect(TICKS, TICKS, Y, Y, 128, 128); #TODO; needs a TextureManager, will come later when GUI textures are made
 		
