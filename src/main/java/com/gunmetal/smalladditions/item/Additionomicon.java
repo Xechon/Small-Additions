@@ -1,5 +1,6 @@
-package com.gunmetal.smalladditions;
+package com.gunmetal.smalladditions.item;
 
+import com.gunmetal.smalladditions.Main;
 import com.gunmetal.smalladditions.gui.AddBookGui;
 import com.gunmetal.smalladditions.util.Constants;
 

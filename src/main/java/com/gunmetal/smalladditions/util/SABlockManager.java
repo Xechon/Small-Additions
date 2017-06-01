@@ -1,6 +1,9 @@
-package com.gunmetal.smalladditions;
+package com.gunmetal.smalladditions.util;
 
 import java.util.ArrayList;
+
+import com.gunmetal.smalladditions.block.GrassyStone;
+import com.gunmetal.smalladditions.block.OreCinnabar;
 
 import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.registry.GameRegistry;

@@ -1,6 +1,6 @@
-package com.gunmetal.smalladditions;
+package com.gunmetal.smalladditions.util;
 
-import com.gunmetal.smalladditions.util.Constants;
+import com.gunmetal.smalladditions.fluid.LiquidMercury;
 
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;

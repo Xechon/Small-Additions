@@ -1,4 +1,7 @@
-package com.gunmetal.smalladditions;
+package com.gunmetal.smalladditions.util;
+
+import com.gunmetal.smalladditions.item.Additionomicon;
+import com.gunmetal.smalladditions.item.MercuryDrop;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemBlock;

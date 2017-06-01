@@ -1,4 +1,4 @@
-package com.gunmetal.smalladditions;
+package com.gunmetal.smalladditions.block;
 
 import com.gunmetal.smalladditions.util.Constants;
 

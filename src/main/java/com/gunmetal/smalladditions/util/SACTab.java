@@ -1,4 +1,4 @@
-package com.gunmetal.smalladditions;
+package com.gunmetal.smalladditions.util;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

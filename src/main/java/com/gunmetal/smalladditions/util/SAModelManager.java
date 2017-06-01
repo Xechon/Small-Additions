@@ -1,6 +1,4 @@
-package com.gunmetal.smalladditions;
-
-import com.gunmetal.smalladditions.util.Constants;
+package com.gunmetal.smalladditions.util;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.ItemMeshDefinition;
@@ -21,11 +19,11 @@ public class SAModelManager {
 		
 	}
 	
-	private void registerFluidModels(Fluid fluid) {
+	public void registerFluidModels(Fluid fluid) {
 		
 	}
 	
-	void registerFluidModel(BlockFluidBase fluidBlock) {
+	public void registerFluidModel(BlockFluidBase fluidBlock) {
 		final Item item = Item.getItemFromBlock(fluidBlock);
 		assert item != null;
 		ModelBakery.registerItemVariants(item);

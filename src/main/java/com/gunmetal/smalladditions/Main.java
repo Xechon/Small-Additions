@@ -2,6 +2,10 @@ package com.gunmetal.smalladditions;
 
 import com.gunmetal.smalladditions.gui.SAGUIManager;
 import com.gunmetal.smalladditions.util.Constants;
+import com.gunmetal.smalladditions.util.SABlockManager;
+import com.gunmetal.smalladditions.util.SAFluidManager;
+import com.gunmetal.smalladditions.util.SAItemManager;
+import com.gunmetal.smalladditions.util.SAModelManager;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;

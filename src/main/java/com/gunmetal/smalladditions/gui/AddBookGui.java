@@ -23,7 +23,6 @@ public class AddBookGui extends GuiBase {
 		int centerY = (this.height - 256) / 2;
 		this.buttonList.clear();
 		this.buttonList.add(new GuiButton(0, centerX, centerY - 100, 180, 20, "ButtonText"));
-		super.drawScreen(0, 0, TICKS);
 	}
 	
 	@Override
@@ -34,9 +33,10 @@ public class AddBookGui extends GuiBase {
 		this.drawDefaultBackground();
 		this.mc.renderEngine.bindTexture(new ResourceLocation(Constants.MODID + ":" + "textures/gui/addbook.png"));
 		drawTexturedModalRect(centerX, centerY, 0, 0, 256, 256); 
-		this.drawCenteredString(mc.fontRendererObj, "What a wonderful world", centerX, centerY, WHITE);		
+		this.drawCenteredString(mc.fontRendererObj, "Additionomicon", centerX + 128, centerY + 16, WHITE);		
 		
 		
+		super.drawScreen(0, 0, TICKS);
 		this.mc.displayGuiScreen(this);
 	}
 
@@ -47,6 +47,8 @@ public class AddBookGui extends GuiBase {
 	
 	public void buttonPressed(GuiButton button) {
 		switch (button.id) {
+		case 0:
+			
 		case 1:
 			//do something with button id 1 here
 		case 2:
