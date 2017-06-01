@@ -1,5 +1,7 @@
 package com.gunmetal.smalladditions;
 
+import com.gunmetal.smalladditions.util.Constants;
+
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelBakery;

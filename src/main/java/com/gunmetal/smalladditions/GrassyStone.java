@@ -1,5 +1,7 @@
 package com.gunmetal.smalladditions;
 
+import com.gunmetal.smalladditions.util.Constants;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;

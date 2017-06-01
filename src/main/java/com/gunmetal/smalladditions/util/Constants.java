@@ -1,4 +1,6 @@
-package com.gunmetal.smalladditions;
+package com.gunmetal.smalladditions.util;
+
+import com.gunmetal.smalladditions.SACTab;
 
 import net.minecraft.util.ResourceLocation;
 

@@ -21,5 +21,5 @@ public abstract class GuiBase extends GuiScreen {
 	public abstract void buildGui();
 
 	@Override
-	public void drawScreen(int mouseX, int mouseY, float partialTicks) {}	
+	public void drawScreen(int mouseX, int mouseY, float partialTicks) {super.drawScreen(mouseX, mouseY, partialTicks);}	
 }

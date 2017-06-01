@@ -1,5 +1,7 @@
 package com.gunmetal.smalladditions;
 
+import com.gunmetal.smalladditions.util.Constants;
+
 import net.minecraft.item.Item;
 
 public class MercuryDrop extends Item {

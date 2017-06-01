@@ -1,5 +1,7 @@
 package com.gunmetal.smalladditions;
 
+import com.gunmetal.smalladditions.util.Constants;
+
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.block.state.IBlockState;
