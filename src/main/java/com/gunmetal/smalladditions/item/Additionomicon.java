@@ -1,6 +1,8 @@
-package com.gunmetal.smalladditions;
+package com.gunmetal.smalladditions.item;
 
-import com.gunmetal.smalladditions.gui.TestGui;
+import com.gunmetal.smalladditions.Main;
+import com.gunmetal.smalladditions.gui.AddBookGui;
+import com.gunmetal.smalladditions.util.Constants;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -13,7 +15,7 @@ import net.minecraft.world.World;
 public class Additionomicon extends Item {
 	public static final String NAME = "additionbook";
 	
-	public static TestGui bookGui = new TestGui();
+	public static AddBookGui bookGui = new AddBookGui();
 	
 	public Additionomicon() {
 		super();
@@ -24,8 +26,7 @@ public class Additionomicon extends Item {
 	
 	@Override
     public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
-		bookGui.buildGui();
-		bookGui.draw(bookGui);
-        return new ActionResult(EnumActionResult.PASS, itemStackIn); 
+		playerIn.openGui(Main.instance, 0, worldIn, 0, 0, 0);
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn); 
 	}
 }

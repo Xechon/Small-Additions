@@ -1,4 +1,6 @@
-package com.gunmetal.smalladditions;
+package com.gunmetal.smalladditions.item;
+
+import com.gunmetal.smalladditions.util.Constants;
 
 import net.minecraft.item.Item;
 

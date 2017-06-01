@@ -1,4 +1,6 @@
-package com.gunmetal.smalladditions;
+package com.gunmetal.smalladditions.fluid;
+
+import com.gunmetal.smalladditions.util.Constants;
 
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.MaterialLiquid;

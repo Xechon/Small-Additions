@@ -1,4 +1,4 @@
-package com.gunmetal.smalladditions;
+package com.gunmetal.smalladditions.util;
 
 import net.minecraft.util.ResourceLocation;
 
